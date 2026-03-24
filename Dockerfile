@@ -12,7 +12,9 @@ COPY data/config.yaml /data/config.yaml
 # COPY plugins/*.mbp /data/plugins/
 
 # Expose the web UI port
-EXPOSE 29316
+EXPOSE 8080
+RUN mkdir -p /data/plugins /data/trash /data/dbs
+
 
 # Default command
 CMD ["/opt/maubot/docker/run.sh"]
