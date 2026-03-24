@@ -1,21 +1,18 @@
-# Start from the official Maubot image
+# Build from the official Maubot image
 FROM mau.dev/maubot/maubot:latest
 
 # Set working directory
 WORKDIR /opt/maubot
 
-# Copy your config.yaml into the container
-# (Railway will mount /data, but this ensures defaults are present)
+# Copy your config.yaml into the container image
+# Railway will mount its own volume at /data, but this ensures defaults exist
 COPY data/config.yaml /data/config.yaml
 
-# Optionally, copy pre-bundled plugins
+# Optionally pre-bundle plugins
 # COPY plugins/*.mbp /data/plugins/
 
 # Expose the web UI port
 EXPOSE 29316
-
-# Define volume for persistence
-VOLUME /data
 
 # Default command
 CMD ["/opt/maubot/docker/run.sh"]
