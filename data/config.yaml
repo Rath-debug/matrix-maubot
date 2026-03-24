@@ -1,4 +1,4 @@
-database: ${MAUBOT_DB_URL}
+database: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
 crypto_db_pickle_key: ${MAUBOT_PICKLE_KEY}
 crypto_database: default
 
@@ -6,15 +6,8 @@ database_opts:
   min_size: 1
   max_size: 10
 
-plugin_directories:
-  upload: /data/plugins
-  load:
-    - /data/plugins
-  trash: /data/trash
-
 plugin_databases:
-  sqlite: /data/dbs
-  postgres:
+  postgres: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
   postgres_max_conns_per_plugin: 3
   postgres_opts: {}
 
