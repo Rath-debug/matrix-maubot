@@ -57,7 +57,7 @@ logging:
       class: logging.StreamHandler
       formatter: simple
   root:
-    level: ${MAUBOT_LOG_LEVEL}
+    level: INFO
     handlers: [console]
 
 oidc:
