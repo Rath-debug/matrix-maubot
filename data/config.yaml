@@ -13,8 +13,8 @@ plugin_databases:
 
 server:
   hostname: 0.0.0.0
-  port: ${MAUBOT_PORT}
-  public_url: https://example.com
+  port: ${MAUBOT_PORT}        # still injected from Railway
+  public_url: ${MAUBOT_PUBLIC_URL}
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/
   override_resource_path: /opt/maubot/frontend
