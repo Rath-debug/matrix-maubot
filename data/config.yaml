@@ -1,28 +1,34 @@
-database: ${MAUBOT_DB_URL}
-crypto_db_pickle_key: ${MAUBOT_PICKLE_KEY}
+database: !!str ${MAUBOT_DB_URL}
+crypto_db_pickle_key: !!str ${MAUBOT_PICKLE_KEY}
 crypto_database: default
 
 database_opts:
   min_size: 1
   max_size: 10
 
+plugin_directories:
+  upload: /data/plugins
+  load:
+    - /data/plugins
+  trash: /data/trash
+
 plugin_databases:
-  postgres: ${MAUBOT_DB_URL}
+  postgres: !!str ${MAUBOT_DB_URL}
   postgres_max_conns_per_plugin: 3
   postgres_opts: {}
 
 server:
   hostname: 0.0.0.0
-  port: ${MAUBOT_PORT}        # still injected from Railway
-  public_url: ${MAUBOT_PUBLIC_URL}
+  port: !!int ${MAUBOT_PORT}
+  public_url: !!str ${MAUBOT_PUBLIC_URL}
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/
   override_resource_path: /opt/maubot/frontend
-  unshared_secret: ${MAUBOT_ACCESS_TOKEN}
+  unshared_secret: !!str ${MAUBOT_ACCESS_TOKEN}
 
 homeservers:
   matrix.org:
-    url: ${MAUBOT_MATRIX_HOMESERVER}
+    url: !!str ${MAUBOT_MATRIX_HOMESERVER}
     secret:
 
 admins:
@@ -54,6 +60,6 @@ logging:
     handlers: [console]
 
 oidc:
-  issuer: ${MAS_ISSUER}
-  client_id: ${MAS_CLIENT_ID}
-  client_secret: ${MAS_CLIENT_SECRET}
+  issuer: !!str ${MAS_ISSUER}
+  client_id: !!str ${MAS_CLIENT_ID}
+  client_secret: !!str ${MAS_CLIENT_SECRET}
