@@ -33,7 +33,7 @@ homeservers:
 
 admins:
   root: ''
-
+  peng: mysecurepassword
 api_features:
   login: true
   plugin: true
