@@ -1,5 +1,5 @@
-# Build from the official Maubot image
-FROM mau.dev/maubot/maubot:latest
+# Build from the official Maubot image pinned to a digest
+FROM dock.mau.dev/maubot/maubot:c3a52ed45b940920e9443c38069f3b2a2fc83298-amd64
 
 # Set working directory
 WORKDIR /opt/maubot
