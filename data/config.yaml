@@ -1,0 +1,24 @@
+database: ${MAUBOT_DB_URL}
+
+web:
+  host: 0.0.0.0
+  port: ${MAUBOT_PORT}
+  base_path: /
+  access_token: ${MAUBOT_ACCESS_TOKEN}
+
+user:
+  id: ${MAUBOT_MATRIX_USER}
+  password: ${MAUBOT_MATRIX_PASSWORD}
+  homeserver: ${MAUBOT_MATRIX_HOMESERVER}
+
+logging:
+  level: ${MAUBOT_LOG_LEVEL}
+  file: ${MAUBOT_LOG_FILE}
+
+encryption:
+  pickle_key: ${MAUBOT_PICKLE_KEY}
+
+oidc:
+  issuer: ${MAS_ISSUER}
+  client_id: ${MAS_CLIENT_ID}
+  client_secret: ${MAS_CLIENT_SECRET}
