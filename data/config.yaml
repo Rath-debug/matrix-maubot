@@ -1,5 +1,5 @@
-database: !!str ${MAUBOT_DB_URL}
-crypto_db_pickle_key: !!str ${MAUBOT_PICKLE_KEY}
+database: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
+crypto_db_pickle_key: randomhexstring
 crypto_database: default
 
 database_opts:
@@ -13,22 +13,22 @@ plugin_directories:
   trash: /data/trash
 
 plugin_databases:
-  postgres: !!str ${MAUBOT_DB_URL}
+  postgres: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
   postgres_max_conns_per_plugin: 3
   postgres_opts: {}
 
 server:
   hostname: 0.0.0.0
-  port: ${MAUBOT_PORT}
-  public_url: !!str ${MAUBOT_PUBLIC_URL}
+  port: 8080
+  public_url: https://matrix-maubot-production.up.railway.app
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/
   override_resource_path: /opt/maubot/frontend
-  unshared_secret: !!str ${MAUBOT_ACCESS_TOKEN}
+  unshared_secret: supersecretstring
 
 homeservers:
   matrix.org:
-    url: !!str ${MAUBOT_MATRIX_HOMESERVER}
+    url: https://synapse-production-ea3f.up.railway.app
     secret:
 
 admins:
@@ -60,6 +60,6 @@ logging:
     handlers: [console]
 
 oidc:
-  issuer: !!str ${MAS_ISSUER}
-  client_id: !!str ${MAS_CLIENT_ID}
-  client_secret: !!str ${MAS_CLIENT_SECRET}
+  issuer: https://mas-service-production-9288.up.railway.app
+  client_id: maubot-client
+  client_secret: railway-secret
