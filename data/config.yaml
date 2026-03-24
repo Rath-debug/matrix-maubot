@@ -19,7 +19,7 @@ plugin_databases:
 
 server:
   hostname: 0.0.0.0
-  port: !!int ${MAUBOT_PORT}
+  port: ${MAUBOT_PORT}
   public_url: !!str ${MAUBOT_PUBLIC_URL}
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/
