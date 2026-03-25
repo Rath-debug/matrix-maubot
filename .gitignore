@@ -3,3 +3,4 @@
 *.b64
 *.tar.gz
 .mbp
+!xyz.maubot.reminder-v0.2.2.mbp
