@@ -27,7 +27,7 @@ server:
   unshared_secret: supersecretstring
 
 homeservers:
-  matrix.org:
+  synapse-production-ea3f.up.railway.app:
     url: https://synapse-production-ea3f.up.railway.app
     secret:
 
