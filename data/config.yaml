@@ -19,7 +19,7 @@ plugin_databases:
 
 server:
   hostname: 0.0.0.0
-  port: 8080
+  port: 29316
   public_url: https://matrix-maubot-production.up.railway.app
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/

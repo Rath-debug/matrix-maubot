@@ -9,6 +9,6 @@ COPY data/config.yaml /data/config.yaml
 RUN mkdir -p /data/plugins /data/trash /data/dbs
 
 
-EXPOSE 8080
+EXPOSE 29316
 
 CMD ["/opt/maubot/docker/run.sh"]
