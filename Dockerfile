@@ -5,10 +5,11 @@ WORKDIR /opt/maubot
 # Copy config where Maubot expects it
 COPY data/config.yaml /data/config.yaml
 
-# Ensure plugin directories exist
+# Ensure plugin directories exist in the image filesystem
 RUN mkdir -p /data/plugins /data/trash /data/dbs
 
 
 EXPOSE 29316
 
-CMD ["/opt/maubot/docker/run.sh"]
+# Recreate runtime directories in case /data is mounted over image contents.
+CMD ["/bin/sh", "-c", "mkdir -p /data/plugins /data/trash /data/dbs && chmod 0777 /data/plugins /data/trash /data/dbs && exec /opt/maubot/docker/run.sh"]
