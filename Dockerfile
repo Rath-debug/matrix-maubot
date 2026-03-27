@@ -5,9 +5,6 @@ WORKDIR /opt/maubot
 # Copy config where Maubot expects it
 COPY data/config.yaml /data/config.yaml
 
-# Bundle the reminder plugin with the image.
-COPY xyz.maubot.reminder-v0.2.2.mbp /opt/maubot/bundled-plugins/
-
 # Ensure plugin directories exist in the image filesystem
 RUN mkdir -p /data/plugins /data/trash /data/dbs
 
