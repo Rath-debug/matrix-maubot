@@ -1,4 +1,5 @@
-database: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
+# data/config.yaml
+database: postgresql://postgres:eBRkbOxubHuxUMbAaqnXxfemkFdXrkhE@mau-bot.railway.internal:5432/railway
 crypto_db_pickle_key: randomhexstring
 crypto_database: default
 
@@ -13,7 +14,7 @@ plugin_directories:
   trash: /data/trash
 
 plugin_databases:
-  postgres: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
+  postgres: postgresql://postgres:eBRkbOxubHuxUMbAaqnXxfemkFdXrkhE@mau-bot.railway.internal:5432/railway
   postgres_max_conns_per_plugin: 3
   postgres_opts: {}
 
