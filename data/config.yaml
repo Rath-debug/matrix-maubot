@@ -1,3 +1,4 @@
+# data/config.yaml
 database: postgresql://postgres:WByENIxESPwoaWlycEEtRkNuOfYqrNhh@postgres-uapc.railway.internal:5432/railway
 crypto_db_pickle_key: randomhexstring
 crypto_database: default
