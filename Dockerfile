@@ -6,7 +6,7 @@ WORKDIR /opt/maubot
 COPY data/config.yaml /data/config.yaml
 
 # Copy plugin bundles into /data/plugins so they persist across redeploys
-COPY plugins/*.mbp /data/plugins/
+COPY plugins /data/plugins
 
 # Ensure plugin directories exist
 RUN mkdir -p /data/plugins /data/trash /data/dbs
