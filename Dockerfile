@@ -2,8 +2,8 @@ FROM dock.mau.dev/maubot/maubot:c3a52ed45b940920e9443c38069f3b2a2fc83298-amd64
 
 WORKDIR /opt/maubot
 
-# Copy config where Maubot expects it
-COPY data/config.yaml /data/config.yaml
+# Copy config template; envsubst will render it to /data/config.yaml at startup
+COPY data/config.yaml.template /data/config.yaml.template
 
 # Copy plugin bundles into /data/plugins so they persist across redeploys
 COPY plugins /data/plugins
