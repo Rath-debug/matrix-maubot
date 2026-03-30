@@ -9,9 +9,16 @@ COPY data/config.yaml /data/config.yaml
 COPY plugins /data/plugins
 
 # Ensure plugin directories exist
-RUN mkdir -p /data/plugins /data/trash /data/dbs
+RUN mkdir -p /data/plugins /data/trash /data/dbs && \
+    chmod 0777 /data/plugins /data/trash /data/dbs && \
+    echo '#!/bin/sh\n\
+    mkdir -p /data/plugins /data/trash /data/dbs\n\
+    chmod 0777 /data/plugins /data/trash /data/dbs\n\
+    envsubst < /data/config.yaml.template > /data/config.yaml\n\
+    exec /opt/maubot/docker/run.sh' > /start.sh && \
+    chmod +x /start.sh
 
 EXPOSE 29316
 
 # Startup: recreate runtime dirs, set permissions, then run Maubot
-CMD ["/bin/sh", "-c", "mkdir -p /data/plugins /data/trash /data/dbs && chmod 0777 /data/plugins /data/trash /data/dbs && exec /opt/maubot/docker/run.sh"]
+CMD ["/start.sh"]

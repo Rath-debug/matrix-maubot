@@ -1,6 +1,6 @@
 # data/config.yaml
-database: postgresql://postgres:eBRkbOxubHuxUMbAaqnXxfemkFdXrkhE@mau-bot.railway.internal:5432/railway
-crypto_db_pickle_key: randomhexstring
+database: "${DATABASE_URL}"
+crypto_db_pickle_key: "${CRYPTO_PICKLE_KEY}"
 crypto_database: default
 
 database_opts:
@@ -14,7 +14,7 @@ plugin_directories:
   trash: /data/trash
 
 plugin_databases:
-  postgres: postgresql://postgres:eBRkbOxubHuxUMbAaqnXxfemkFdXrkhE@mau-bot.railway.internal:5432/railway
+  postgres: "${PLUGIN_DATABASE_URL}"
   postgres_max_conns_per_plugin: 3
   postgres_opts: {}
 
@@ -25,7 +25,7 @@ server:
   ui_base_path: /_matrix/maubot
   plugin_base_path: /_matrix/maubot/plugin/
   override_resource_path: /opt/maubot/frontend
-  unshared_secret: supersecretstring
+  unshared_secret: "${UNSHARED_SECRET}"
 
 homeservers:
   synapse-production-ea3f.up.railway.app:
@@ -34,7 +34,7 @@ homeservers:
 
 admins:
   root: ''
-  peng: mysecurepassword
+  peng: "${ADMIN_PENG_PASSWORD}"
 api_features:
   login: true
   plugin: true
@@ -63,4 +63,4 @@ logging:
 oidc:
   issuer: https://mas-service-production-9288.up.railway.app
   client_id: maubot-client
-  client_secret: railway-secret
+  client_secret: "${OIDC_CLIENT_SECRET}"
