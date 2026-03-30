@@ -3,16 +3,19 @@ FROM dock.mau.dev/maubot/maubot:c3a52ed45b940920e9443c38069f3b2a2fc83298-amd64
 WORKDIR /opt/maubot
 
 # Copy config where Maubot expects it
-COPY data/config.yaml /data/config.yaml
+COPY data/config.yaml /data/config.yaml.template
 
 # Copy plugin bundles into /data/plugins so they persist across redeploys
 COPY plugins /data/plugins
 
+# Copy startup script
+COPY start.sh /start.sh
+
 # Ensure plugin directories exist
 RUN mkdir -p /data/plugins /data/trash /data/dbs && \
-    chmod 0777 /data/plugins /data/trash /data/dbs && \
-    printf '#!/bin/sh\nmkdir -p /data/plugins /data/trash /data/dbs\nchmod 0777 /data/plugins /data/trash /data/dbs\nexec /opt/maubot/docker/run.sh\n' > /start.sh && \
-    chmod +x /start.sh
+    chmod 0777 /data/plugins /data/trash /data/dbs
+
+RUN chmod +x /start.sh
 
 EXPOSE 29316
 
