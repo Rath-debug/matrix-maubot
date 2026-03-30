@@ -11,7 +11,7 @@ COPY plugins /data/plugins
 # Ensure plugin directories exist
 RUN mkdir -p /data/plugins /data/trash /data/dbs && \
     chmod 0777 /data/plugins /data/trash /data/dbs && \
-    printf '#!/bin/sh\nmkdir -p /data/plugins /data/trash /data/dbs\nchmod 0777 /data/plugins /data/trash /data/dbs\nenvsubst < /data/config.yaml.template > /data/config.yaml\nexec /opt/maubot/docker/run.sh\n' > /start.sh && \
+    printf '#!/bin/sh\nmkdir -p /data/plugins /data/trash /data/dbs\nchmod 0777 /data/plugins /data/trash /data/dbs\nexec /opt/maubot/docker/run.sh\n' > /start.sh && \
     chmod +x /start.sh
 
 EXPOSE 29316
