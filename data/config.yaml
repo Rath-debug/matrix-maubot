@@ -1,5 +1,5 @@
 # data/config.yaml
-database: "${DATABASE_URL}"
+database: "postgresql://postgres:eBRkbOxubHuxUMbAaqnXxfemkFdXrkhE@mau-bot.railway.internal:5432/railway"
 crypto_db_pickle_key: "${CRYPTO_PICKLE_KEY}"
 crypto_database: default
 
